@@ -1,0 +1,715 @@
+---
+title: "Données et médiation"
+subtitle: "Séance 1"
+author: "Samuel Goëta"
+date: "Sciences Po Aix , `r format(Sys.Date(), '%d %b %Y')`"
+output:
+  SlidesDatactivist::moon_reader:
+    css: [default, datactivist, datactivist-fonts]
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+params:
+  event: "Données et médiation"
+  slug: spx_donneesmediation
+---
+
+layout: true
+  
+
+`r paste0("<div class='my-footer'><span>", params$event, "</span> <center><div class=logo><img src='https://github.com/datactivist/slides_datactivist/raw/master/inst/rmarkdown/templates/xaringan/resources/img/fond_noir_monochrome.png' width='0px'></center></span></div>")` 
+
+
+---
+
+class: center, middle
+
+Ces slides en ligne : `r paste0("http://https://samgoeta.github.io/", params$slug)`
+
+Sources : `r paste0("https://github.com/samgoeta/", params$slug)`
+
+
+Les productions de Datactivist sont librement réutilisables selon les termes de la licence [Creative Commons 4.0 BY-SA](https://creativecommons.org/licenses/by-sa/4.0/legalcode.fr).
+
+<BR>
+<BR>
+
+.reduite[![](https://mirrors.creativecommons.org/presskit/buttons/88x31/png/by-sa.png)]
+
+
+---
+### .red[Objectifs] du cours
+
+* Renforcer votre **culture des données** par la pratique
+
+* Avoir une **expérience de première main** avec les données
+
+* Etre capable de **conduire des actions de médiation** avec les données
+
+* Connaitre la **méthodologie générale de réutilisation** d'un jeu de données
+
+---
+class:inverse,middle,center
+
+## Introduction au data pipeline
+
+---
+
+class:inverse,middle,center
+
+## Introduction au data pipeline
+---
+### Réutiliser les données : un parcours fait de joies et de déceptions
+
+.reduite.center[
+![](./img/data batman.png)
+
+---
+
+###  Présentation du .red[data pipeline]
+
+.pull-left[
+.reduite[![](./img/Data_pipeline_FR_transparent.png)]
+]
+
+.pull-right[
+Nous allons suivre la méthodologie du [Data Pipeline](http://schoolofdata.org/methodology) développée par School of Data 
+
+* Une méthodologie générique pour la découverte et l'usage de données ouvertes
+
+* 7 étapes qui, selon les projets, prennent une importance plus ou moins grande. 
+]
+
+---
+
+### Définir
+
+.pull-left[
+.reduite[![](./img/Data_pipeline_FR_transparent.png)]
+]
+.pull-right[
+
+#### Définir précisément votre problème
+
+#### Que cherchez vous à comprendre ?
+
+#### Quelles données vous seraient utiles ?
+
+]
+
+---
+
+### Définir, c'est trouver un .red[angle] à votre sujet
+
+![](./img/expe.png)
+.footnote[[](https://fr.okfn.org/2014/07/03/a-la-conquete-des-donnees-sur-la-pollution-de-lair/)]
+
+---
+
+### Trouver
+
+.pull-left[
+.reduite[![](./img/Data_pipeline_FR_transparent.png)]
+]
+.pull-right[
+
+#### Utiliser les opérateurs spéciaux
+
+#### Chercher sur les portails open data
+
+#### Utiliser les facettes pour trouver les bonnes données
+
+#### Extraire des données d'OpenStreetMap
+
+#### S'appuyer sur des ressources de [curation de données](https://teamopendata.org/t/curation-de-donnees-data-is-plural/734)
+]
+
+---
+### Utiliser les .red[opérateurs spéciaux]
+
+Exemple avec la requête "site:education.gouv.fr filetype:xlsx" :
+
+
+![](./img/filetype.gif)
+
+---
+### Utiliser les .red[facettes] pour trouver les bonnes données
+
+.pull-left[
+![](./img/facettes.png)
+]
+
+.pull-right[
+Les facettes sont des filtres dans les métadonnées. 
+
+Elles permettent de sélectionner par exemple uniquement un certain producteur. 
+
+Cela peut faire gagner beaucoup de temps dans une recherche de données.
+]
+---
+### Utiliser les .red[facettes] pour trouver les bonnes données
+
+![](./img/ECOLE.png)
+.pull-left[
+Sans filtre par facette, à la requête écoles, on a des résultats étonnants en première page comme ces données de la FEMIS.  
+]
+
+.pull-right[
+En gardant uniquement "Education Nationale"" dans la facette organisation, on s'assure de trouver des données nationales. 
+]
+---
+### Utiliser .red[Google] Dataset Search
+
+Google propose depuis quelques temps ce [moteur de recherche](https://toolbox.google.com/datasetsearch) aggrégant de très nombreux portails open data. Les résultats sont inégaux mais le moteur est encore nouveau…
+
+[![](./img/datasetsearch.png)](https://toolbox.google.com/datasetsearch)
+
+---
+### Chercher dans le [réseau de données OpenDataSoft](data.opendatasoft.com)
+OpenDataSoft référence tous les jeux de données publiés sur l'ensemble de ses portails. Parmi eux, le portail Public référence des jeux de données introuvables ailleurs comme la [localisation des radars](https://data.opendatasoft.com/explore/dataset/radars%40public/table/). 
+
+![](./img/dataods.png)
+---
+### Trouver le bon .red[tag] sur OSM
+La page "[Elements Cartographiques](https://wiki.openstreetmap.org/wiki/FR:%C3%89l%C3%A9ments_cartographiques)" sur le wiki d'OSM recense tous les tags utilisés dans la base de données. 
+
+[![](./img/mapfeatures.png)](https://wiki.openstreetmap.org/wiki/FR:%C3%89l%C3%A9ments_cartographiques)
+
+.footnote[Plus d'infos : https://datactivist.coop/atelier-osm/]
+
+---
+### Utiliser des [ressources de curation de données](https://teamopendata.org/t/curation-de-donnees-data-is-plural/734)
+
+Je recense sur [TeamOpenData](https://teamopendata.org/t/curation-de-donnees-data-is-plural/734) les meilleures ressources de curation de données. Une recherche vous aidera à trouver des données internationales que vous ne trouverez généralement pas autrement. 
+
+Par exemple, l'excellente [newsletter Data Is Plural](https://tinyletter.com/data-is-plural/) propose chaque semaine une présentation des meilleurs jeux de données qui sont archivés dans une [feuille de calcul](https://docs.google.com/spreadsheets/d/1wZhPLMCHKJvwOkP4juclhjFgqIY8fQFMemwKL2c64vk/edit#gid=0).
+
+[![](./img/dataisplural.png)](https://docs.google.com/spreadsheets/d/1wZhPLMCHKJvwOkP4juclhjFgqIY8fQFMemwKL2c64vk/edit#gid=0)
+
+---
+### Récupérer 
+
+.pull-left[
+.reduite[![](./img/Data_pipeline_FR_transparent.png)]
+]
+.pull-right[
+
+- #### Téléchargement direct
+
+- #### API ou web service
+
+- #### Scrapping de données
+
+- #### Copier / coller
+
+- #### Extraction (OpenStreetMap)
+
+
+]
+
+---
+### .red[Scrapping] de données : quelques outils
+
+[import.io](import.io) est un excellent outil qui facilite grandement l'extraction des données depuis un site web. L'outil détecte automatiquement la structure des données sur le site. 
+
+![](http://andrewbtran.github.io/JRN-418/class7/import3.png)
+.footnote[Loïc Haÿ a développé un [tutoriel](https://www.dropbox.com/s/yarrneyseghd7d6/05-%20Extraire%20des%20donn%C3%A9es%20%C3%A0%20partir%20de%20pages%20web.pdf?dl=0) pour utiliser import.io.]
+
+---
+### .red[Scrapping] de données : quelques outils
+
+L'extension [Scraper](https://chrome.google.com/webstore/detail/scraper/mbigbapnjcgaffohmbkdlecaccepngjd?hl=fr) pour Chrome permet d'extraire en quelques clics les données d'un site. 
+
+![](./img/scrap.gif)
+
+---
+### .red[Scrapping] de données : quelques outils
+
+L'excellente extension [WebScraper](https://www.webscraper.io/) est très puissante, elle permet d'extraire des données disséminée dans de multiples pages.
+![](./img/webscraper.gif)
+
+---
+### .red[Extraire] des données d'OpenStreetMap
+
+[Overpass-Turbo](overpass-turbo.eu) permet d'extraire des éléments spécifiques dans la base de données OpenStreetMap. Exemple ici avec les écoles dans l'Yonne : 
+
+![](./img/overpass.gif)
+.footnote[Plus d'infos : https://datactivist.coop/atelier-osm/]
+---
+
+### Vérifier 
+
+.pull-left[
+.reduite[![](./img/Data_pipeline_FR_transparent.png)]
+]
+
+.pull-right[
+
+- #### Bon sens
+
+- #### Demander à la source
+
+- #### S'appuyer sur des communautés d’experts
+
+- #### Statistiques
+
+
+]
+
+---
+### S'appuyer sur les .red[commentaires] dans data.gouv.fr
+
+data.gouv.fr permet aux usagers de discuter autour des données, cela vous aidera à détecter les problèmes avec les données. 
+
+[![](./img/rne.gif)](https://www.data.gouv.fr/fr/datasets/donnees-du-repertoire-national-des-elus/)
+
+---
+### .red[WTFCsv] pour faire un contrôle rapide des données
+
+[WTFCSV](https://www.databasic.io/en/wtfcsv/) est un outil de médiation de données qui propose un aperçu de vos fichiers CSV. 
+
+[![](./img/wtfcsv.png)](https://www.databasic.io/en/wtfcsv/results/5b73338c9dfb0a00e15f07ff#tooltip)
+
+---
+### Nettoyer 
+
+.pull-left[
+.reduite[![](./img/Data_pipeline_FR_transparent.png)]
+]
+.pull-right[
+
+- #### Toilettage
+
+- #### Edition
+
+- #### Consolidation
+
+- #### Erreurs fréquentes
+
+]
+
+---
+### Open .red[Refine] pour nettoyer les données
+
+[OpenRefine](http://openrefine.org/) est un outil puissant pour explorer, transformer et rapprocher des données. 
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/cO8NVCs_Ba0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+.footnote[Mathieu Saby a publié un [tutoriel complet](http://opendata.maregionsud.fr/fileadmin/user_upload/tx_ausynews/ODL/ODL_OpenRefine_Marseille_2017-06-09-v2.pdf). ]
+
+---
+### Le [sprint qualité](https://infolabs.io/sprint-qualite) pour détecter les problèmes dans les données
+
+[![](./img/sprint.png)](https://infolabs.io/sprint-qualite)
+
+---
+### Le [Quartz Bad Data Guide](https://infolabs.io/sprint-qualite) : un résumé des problèmes avec les données
+
+[![](./img/quartz.gif)](https://github.com/Quartz/bad-data-guide)
+
+---
+### .red[Workbench] pour rendre reproductible les traitements
+
+Workbench propose de nombreux outils de traitement et de visualisation des données rendant reproductible le nettoyage des données. Loïc Haÿ a produit avec un [Catalogue des Datasets des Départements](https://app.workbenchdata.com/workflows/14052/).
+ 
+.reduite.center[
+![](./img/workbench.png)
+]
+
+---
+
+### Analyser 
+
+.pull-left[
+.reduite[![](./img/Data_pipeline_FR_transparent.png)]
+]
+.pull-right[
+
+#### Type d’analyse
+- Analyse statistique
+- Analyse spatiale
+
+#### Outils
+
+- Tableur
+- R
+- QGIS (données géo)
+- Etc.
+
+]
+
+---
+
+### Présenter
+
+.pull-left[
+.reduite[![](./img/Data_pipeline_FR_transparent.png)]
+]
+
+.pull-right[
+
+### Communiquer les résultats de votre analyse au public.
+]
+
+---
+### .red[La data visualisation] : pour quoi faire?
+
+<BR>
+
+> "La visualisation des données est un ensemble de méthodes de représentation graphique, en deux ou trois dimensions.
+>
+> *https://fr.wikipedia.org/wiki/Visualisation_de_donn%C3%A9es*
+
+<BR>
+
+> "C'est une pratique consistant à mettre en image des données brutes, les rendant ainsi plus accessibles et compréhensibles. Elle donne du sens à ces données."
+>
+> .red[*Toucan Toco*]
+
+---
+### .red[Un exemple] de dataviz
+
+
+#### Voici les données
+Selon l'Organisation internationale des migrations, 3108 migrant·e·s ont trouvé la mort ou disparu durant le premier semestre 2017.
+
+.pull-left[
+- 2259 en Méditerranée
+- 225 en Afrique du Nord ;
+- 148 à la frontière américano-mexicaine ;
+- 136 en Afrique subsaharienne ;
+- 103 dans la Corne de l'Afrique ;
+- 91 dans les Caraïbes ;
+]
+
+.pull-right[
+
+- 45 en Asie du Sud-Est ;
+- 34 en Amérique centrale ;
+- 33 en Europe ;
+- 31 au Moyen-Orient ;
+- un·e en Amérique du Nord ;
+- un·e en Asie du Sud ;
+- un·e en Asie de l'Est.
+]
+
+
+---
+### .red[Un exemple] de dataviz
+
+
+#### Voici une dataviz réalisée à partir des données précédentes
+
+.reduite.center[
+
+![](./img/Migrants_Guardian1.png)
+]
+
+
+.footnote[*Source* : [The Guardian, 11/09/2017](https://www.theguardian.com/world/2017/sep/11/migrant-death-toll-rises-after-clampdown-on-east-european-borders)]
+
+
+
+---
+### .red[Quel message] veut-on faire passer ?
+
+
+- Une dataviz porte avant tout une **intention**, la volonté de transmettre une information.
+
+--
+
+- De cette intention découlera le **type de dataviz** à utiliser.
+
+--
+<Br>
+<div style="text-align: center">
+ <img src="img/Intention.PNG" width="600"/>
+</div>
+
+---
+
+### .red[Panorama des ] fonctions de visualisation
+
+**Connaissez-vous le "Data Viz Project" ?**
+https://datavizproject.com/
+
+.pull-left[
+- Comparaison
+- Visualisation de concept
+- Corrélation
+- Distribution
+- Données géographiques
+- Une partie d'un ensemble
+- Changement de valeur dans le temps
+]
+
+
+.pull-right[
+.center[.reduite[![](./img/DataVizProject_p1.png)]]
+]
+
+---
+###.red[Des outils] en fonction des usages
+.center[.reduite[![](./img/Tous_les_outils.PNG)]]
+---
+### Les .red[trois qualités] d'une visualisation 
+
+.center.reduite[
+![](https://datactivist.coop/infolab_poitiers/dataviz_sandwich/img/Venn_Dataviz.png)
+]
+---
+
+### L'.red[interprétation] des données
+
+Souvent les données sont accompagnées de **contexte et d'analyse**, qui donnent lieu à une certaine .red[**interprétation**]. Ces éléments peuvent différer d'une source à une autre, il est donc utile de les croiser régulièrement. 
+
+.pull-left[<img src="./img/interpretation.png" height="350"/>]
+
+.pull-right[Ici un exemple classique des divergences d'interprétation des données mensuelles du chômage (Sept 2017). Essayez de remonter directement aux producteurs de données "primaires", ici Pole Emploi, si vous souhaitez approfondir votre analyse en évitant le *"bruit éditorial"*]
+
+---
+
+### En guise de .red[rappel]... :)
+
+.center[<img src="./img/pollution.png" height="400"/>]
+
+.footnote[© Xavier Gorce]
+
+---
+### .red[Médiane] ou Moyenne ?
+
+D'après-vous, l'écart est-il significatif entre le salaire moyen et médian ?
+
+--
+- Salaire mensuel **.red[moyen]** net en France en 2014 (secteur privé) : **2 225€**
+- Salaire mensuel **.red[median]** net en France en 2014 (secteur privé) : **1 783€**
+Soit une différence de près de **450€** !
+
+.center[[<img src="./img/salaireinsee.png" height="340"/>](https://www.insee.fr/fr/statistiques/2121609#consulter)]
+
+---
+### .red[Médiane] ou Moyenne ?
+
+Rappelez-vous que **la moyenne est très sensible aux .red[valeurs extrêmes]...**
+
+.center[[<img src="./img/milliardaire.png" height="400"/>](https://www.insee.fr/fr/statistiques/2121609#consulter)]
+
+---
+### .red[Corrélation] ou causalité ?
+
+Rappel : une corrélation fortement positive, avec un coefficient de corrélation (r) > 0,5, signifie seulement que deux variables évoluent dans le même sens. Cela ne dit **rien** sur le possible lien entre elles
+- Faites attention aux **corrélations fallacieuses** !
+- Exemple ici avec la corrélation quasi parfaite entre la consommation de fromage par personne et le nombre de personnes qui décèdent étranglées dans leurs draps
+
+.center[[<img src="./img/spurious.png" height="250"/>](http://tylervigen.com/spurious-correlations)]
+
+---
+### .red[Corrélation] ou causalité ?
+
+A l'instar du site parodique ["Spurious Correlations"](http://tylervigen.com/spurious-correlations) dont le graphique précédent est issu, les Décodeurs du monde ont récemment lancé un [générateur aléatoire de comparaisons](https://www.lemonde.fr/les-decodeurs/article/2019/01/02/correlation-ou-causalite-brillez-en-societe-avec-notre-generateur-aleatoire-de-comparaisons-absurdes_5404286_4355770.html). Un bon moyen pour ne plus jamais faire la confusion entre corrélation ou causalité !
+
+.center[<img src="./img/decodeurs.png" height="350"/>]
+
+---
+### .red[Corrélation] ou causalité ?
+
+- En ce qui concerne les corrélations, il faut être attentif au **.red[nombre d'unités observées]** : moins il y a d'observations, plus la corrélation est facilement élevée. Ce n'est pas pareil de regarder la corrélation entre 2 variables sur 13 régions ou sur 35 000 villes
+
+.center[<img src="./img/correlation.png" height="180"/>]
+
+- Il faut également être prudent sur l'échelle spatiale utilisée : la corrélation entre le % d'immigrants et le vote FN est positif à l'échelle du département. Mais à l'intérieur de ces départements, **ce sont dans les zones avec la plus faible proportion d'immigrants que les personnes votent FN**. Ainsi, au niveau micro la corrélation peut être inversée que ce qui était observé au niveau macro
+
+---
+### .red[Corrélation] ou causalité ?
+
+.center[<img src="./img/lebras.png" height="350"/>]
+
+.footnote[Credits Hervé Le Bras]
+
+---
+### .red[Corrélation] ou causalité ?
+
+- Les zones combinant le plus de difficultés sont corrélées avec celles ayant une part des suffrages élevée pour Marine Le Pen à la présidentielle de 2012
+
+- Est-ce que cela signifie que les personnes qui ont le plus de difficultés votent FN ?
+  - Pas forcément, pourquoi ?
+  
+> Il serait cependant inexact d’en déduire que ce vote est celui des pauvres et des laissés pour compte. Ces derniers s’abstiennent le plus souvent. On doit plutôt constater que c’est le vote des régions pauvres, celles où beaucoup craignent les accidents de la vie car ils voient leurs proches atteints par eux.
+
+Hervé Le Bras, dans son article pour The Conversation ["La France inégale : Qui vote FN ? Pas forcément ceux à qui l’on pense"](https://theconversation.com/la-france-inegale-qui-vote-fn-pas-forcement-ceux-a-qui-lon-pense-75977) (**obligatoire**)
+
+---
+### .red[Corrélation] ou causalité ?
+
+<BR><BR><BR>
+.center[<img src="./img/causalite.png" height="200"/>]
+
+.footnote[Credits XKCD]
+
+---
+### Les facteurs .red[cachés]
+
+Il existe des facteurs qu'on ne voit pas ou auxquels on ne pense généralement pas mais qui peuvent fortement influer sur des résultats.
+- Exemple ici avec la forte baisse du nombre de décès sur les routes en France entre 2003 et 2014
+
+.center[<img src="./img/routes.png" height="100"/>]
+
+- Est-ce que les politiques actives de lutte contre l'insécurité routière mises en place dans les années 2000 sont la seule explication de cette baisse ? D'autres facteurs "cachés" peuvent aussi avoir eu un rôle significatif
+
+---
+### Les facteurs .red[cachés]
+
+Quelques exemples :
+
+- Le **taux d'occupation des voitures** a fortement baissé (donc mécaniquement moins de morts  à accidents comparables)
+  
+- Les **conducteurs "novices"**, i.e avec moins de 12 années de pratique, sont de moins en moins nombreux
+
+- Les personnes blessées dans des accidents de la route sont **mieux pris en charge par les services d'urgence** que par le passé
+
+- La **qualité des voitures** s'est fortement améliorée, et notamment l'aspect sécurité (airbags)
+
+---
+### Le périmètre du .red[dénominateur]
+
+Lorsqu'il est question de **.red[ratio]**, il est utile de se demander ce que comprend le dénominateur de ce ratio. Le périmètre du dénominateur influence évidemment le résultat obtenu. 
+
+- Exemple avec le taux de chômage des jeunes en France : à la fin 2017, le taux de chômage des 15-24 ans atteignait 23%
+
+- Est-ce que cela signifie que près d'un jeune sur 4 est au chômage ?
+
+.center[<img src="./img/chomage1.png" height="150"/>]
+
+.footnote[[Source](https://www.huffingtonpost.fr/2012/09/06/taux-chomage-bit-jeunes-dom_n_1860232.html)]
+
+---
+### Le périmètre du .red[dénominateur]
+
+- Est-ce que cela signifie que près d'un jeune sur 4 est au chômage ?
+
+- Non ! Le dénominateur prend en compte les **"personnes actives"**, c'est-à-dire ayant un emploi ou à la recherche d'un emploi
+
+- Mais **seulement 37% des 15-24 ans sont actifs** ! Beaucoup des autres sont encore en études secondaires ou tertiaires 
+
+- Et ceux qui sont déjà sur le marché du travail sont souvent ceux qui ont quitté tôt le système scolaire et donc **plus susceptible d'éprouver des difficultés pour trouver un travail**
+
+- Si on rapporte le nombre de 15-24 ans à la recherche d'un emploi sur l'ensemble des 15-24 ans (y compris ceux en études), le taux de chômage tombe à 8,5%, soit près d'un jeune sur 12
+
+.footnote[Regarder la vidéo ["Un jeune sur quatre au chômage ?"](https://education.francetv.fr/matiere/economie/premiere/video/un-jeune-sur-quatre-au-chomage)]
+
+---
+### Les .red[représentations graphiques] problématiques
+
+- Avoir une **.red[échelle discontinue sur les histogrammes]** : il est fréquent de trouver des histogrammes dont l'axe des ordonnées ne démarre pas à 0. Cela a pour conséquence de "tronquer" une partie du graphique et de donner une **présentation biaisée des données**.
+Cela est souvent réalisé consciemment pour faire passer un message
+  - Exemple avec [le communiqué de presse de la SNCF](https://www.sncf.com/sncv1/ressources/cp_taux_de_participation_4_avril_2018.pdf) durant la grève des cheminots (avril 2018) sur le taux de grévistes :
+  
+.center[<img src="./img/greve.png" height="220"/>]
+
+---
+### Les .red[représentations graphiques] problématiques
+
+Voici ce que donne le même graphique mais avec l'axe des ordonnées démarrant à 0 :
+
+.pull-left[<img src="./img/greve2.png" height="350"/>]
+
+.pull-right[*Pas le même rendu, n'est-ce pas ? ;)*]
+
+  <BR><BR><BR><BR><BR>
+
+.pull-right[*NB: de nombreux exemples cités dans cette partie proviennent de [cet article des Décodeurs*](https://abonnes.lemonde.fr/les-decodeurs/article/2018/05/22/sept-conseils-pour-ne-pas-se-faire-avoir-par-les-representations-graphiques_5302680_4355770.html) du Monde]
+
+---
+### Les .red[représentations graphiques] problématiques
+
+- Avoir une **.red[échelle discontinue sur les graphiques en courbe]** : même problème que pour les histogrammes. Un autre exemple parlant avec un tract du FN (à gauche) et le même graphique, réalisé par Les Décodeurs, avec l'axe des ordonnées partant de 0 (à droite) :
+
+.center[<img src="./img/tractFN.png" height="300"/>]
+
+---
+### Les .red[représentations graphiques] problématiques
+
+- Les **.red[graphiques en camembert]** (pie chart) sont à éviter lorsqu'on souhaite représenter des **proportions** :
+
+.center[[<img src="./img/Camembert.png" height="350"/>](https://twitter.com/maxcroser/status/857389434756505600)]
+
+---
+### Les .red[représentations graphiques] problématiques
+
+- Les **.red[graphiques avec une "Base 100"]** : en fonction de l'année sélectionnée pour être la base 100, les évolutions peuvent fortement changer
+
+.center[[<img src="./img/mlp1.png" height="320"/>](https://www.lemonde.fr/les-decodeurs/article/2017/03/21/les-manipulations-graphiques-de-marine-le-pen-sur-l-euro_5098439_4355770.html)]
+
+##### .center[*Marine Le Pen montre un graphique pendant le 1er débat TV de la présidentielle 2017*]
+
+---
+### Les .red[représentations graphiques] problématiques
+
+- Les **.red[graphiques avec une "Base 100"]** : en fonction de l'année sélectionnée pour être la base 100, les évolutions peuvent fortement changer
+  - A gauche, Production industrielle en Europe, base 100 = **2010**
+  - A droite, Production industrielle en Europe, base 100 = **1974**
+
+.pull-left[<img src="./img/indus1.png" height="300"/>]
+
+.pull-right[<img src="./img/indus2.png" height="300"/>]
+
+---
+### Les .red[représentations graphiques] problématiques
+
+Et si on ne prend pas en compte que l'évolution de la production industrielle, mais celle de l'ensemble du PIB, le graphique évolue significativement
+
+.center[[<img src="./img/indus3.png" height="350"/>](https://twitter.com/henrikenderlein/status/844174756089942016)]
+
+---
+### Les représentations .red[spatiales]
+
+En fonction de l'**unité spatiale** retenue pour représenter graphiquement les données, les résultats peuvent différer fortement d'une carte à une autre...
+- Exemple avec la représentation des résultats du 1er tour de l'élection présidentielle française de 2017. A gauche les résultats par commune, à droite une carte à anamorphose où la superficie des communes est proportionnelle au nombre de leurs habitants
+
+
+.center[[<img src="./img/presidentielle.png" height="290"/>](https://www.populationdata.net/cartes/france-elections-presidentielles-2017-1er-tour/)]
+
+---
+### Les représentations .red[spatiales]
+
+- A gauche les résultats par département, à droite les résultats par région
+
+.pull-left[<img src="./img/presidentielle2.png" height="350"/>]
+
+.pull-right[<img src="./img/presidentielle3.png" height="350"/>]
+
+.footnote[[source](https://abonnes.lemonde.fr/les-decodeurs/article/2017/04/24/premier-tour-de-la-presidentielle-les-resultats-par-region_5116526_4355770.html)]
+
+---
+### Les représentations .red[spatiales]
+
+Lorsqu'elles sont representées sur des cartes, les données doivent souvent être représentées **relativement à la population**, et non pas en valeur absolue
+- Exemple ici avec, à gauche, le nombre de décès liés à l'alcoolisme en France en 2013. Et à droite, les mêmes données représentées relativement à la population de chaque région
+
+.pull-left[<img src="./img/alcoolisme2.png" height="270"/>]
+
+.pull-right[<img src="./img/alcoolisme1.png" height="270"/>]
+
+.footnote[[source](https://www.scoresante.org/sindicateurs.html)]
+
+---
+### Les représentations .red[spatiales]
+
+Soyez attentifs aux couleurs choisies automatiquement par l'outil de visualisation utilisé. Par défaut, **ils adaptent les échelles et les couleurs associées aux nouvelles données,** ce qui peut brouiller les évolutions d'une année à une autre. Ici le taux de décès liés à l'alcoolisme en Bretagne a été divisé par 3 entre 1980 et 2013
+
+.pull-left[<img src="./img/scor1.png" height="290"/>]
+
+.pull-right[<img src="./img/scor2.png" height="290"/>]
+
+.footnote[[source](https://www.scoresante.org/sindicateurs.html)]
+
+
+---
+
+class:inverse, middle, center
+
+# Merci !
+
+Contact : [samgoeta@hey.com](mailto:samgoeta@hey.com)
