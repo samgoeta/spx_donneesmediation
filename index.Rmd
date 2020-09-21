@@ -107,6 +107,31 @@ Nous allons suivre la méthodologie du [Data Pipeline](http://schoolofdata.org/m
 .footnote[[](https://fr.okfn.org/2014/07/03/a-la-conquete-des-donnees-sur-la-pollution-de-lair/)]
 
 ---
+### Thématiques des groupes de travail
+
+.pull-left[
+* Les radars fixes
+
+* Les signalements sur la voie publique (à Paris)
+
+* L'accidentologie routière
+
+* Le développement du vélo dans les villes
+
+]
+
+.pull-right[
+* Les prix de l'immobilier 
+
+* La rénovation énergétique des batiments 
+
+* La COVID-19
+]
+
+.center[
+### --> consituez 4 groupes ]
+
+___
 
 ### Trouver
 
