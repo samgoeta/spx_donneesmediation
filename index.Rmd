@@ -130,8 +130,8 @@ Nous allons suivre la méthodologie du [Data Pipeline](http://schoolofdata.org/m
 
 .center[
 ### --> consituez 4 groupes ]
+---
 
-___
 
 ### Trouver
 
